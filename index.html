@@ -3,18 +3,56 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Psychic Game</title>
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/readable/bootstrap.min.css">
+    <title>Batman RPG Game</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cyborg/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=IM+Fell+English" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <!--Game Div Container-->
     <div id="game" class="container">
         <!-- Game Title -->
-        <div id="title" class="jumbotron">
-            <h1>Star Wars: Yoda and the Storm Poopers Fight! </h1>
-            <p></p>
+        <div id="title" class="header">
+            <h1>Batman RPG: Gotham's Savior</h1>
+        </div>
+        <!--Choose your character  -->
+        <div class="row" id="players">
+            <h3 id="choose-player">Choose your player</h3>
+            <figure class="figure">
+                <img src="assets/images/thebat.jpg" class="figure-img img-fluid rounded character" alt="A pic of Batman the character" id="batman">
+                <figcaption class="figure-caption">Batman 100 HP</figcaption>
+            </figure>
+            <figure class="figure">
+                <img src="assets/images/joker.jpg" class="figure-img img-fluid rounded character" alt="A pic of joker the character" id="joker">
+                <figcaption class="figure-caption">Joker 150 HP</figcaption>
+            </figure>
+            <figure class="figure">
+                <img src="assets/images/bane.jpg" class="figure-img img-fluid rounded character" alt="A pic of bane the character" id="bane">
+                <figcaption class="figure-caption">Bane 120 HP</figcaption>
+            </figure>
+            <figure class="figure">
+                <img src="assets/images/evilsuperman.jpg" class="figure-img img-fluid rounded character" alt="A pic of evilsuperman" id="evilsuperman">
+                <figcaption class="figure-caption">Evil Superman 180 HP</figcaption>
+            </figure>
+        </div>
+        <!-- Enemies available to attack -->
+        <div class="attack-section row">
+            <h3 id="attack-header">Choose one of Batman's enemies to attack!</h3>
+        </div>
+        <hr>
+        <!-- Fight Section -->
+        <div class="fight-section row">
+            <h3>Fight Section</h3>
+        </div>
+        <!-- Attack button -->
+        <a href="#" class="btn btn-danger">Attack!</a>
+        <!-- Defender Section -->
+        <div class="defender-section row">
+            <h3>Defender</h3>
         </div>
     </div>
     <!-- Javascript Link to game.js -->

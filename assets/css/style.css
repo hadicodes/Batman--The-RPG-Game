@@ -1,4 +1,25 @@
-/*.jumbotron {
+body {
+    background: url("../images/batface.jpg");
+}
+
+h1 {
+    font-family: 'Fredericka the Great', cursive;
     text-align: center;
-    padding-top: 20px;
-}*/
+}
+
+h3 {
+    font-family: 'IM Fell English', serif;
+}
+
+img {
+    max-height: 200px;
+}
+
+
+/*character pics*/
+
+.figure {
+    border: 2px yellow solid;
+    float: left;
+    margin-right: 10px;
+}
