@@ -35,6 +35,7 @@ var superman = {
     counterAttackPower: 25
 };
 
+//Global Variables
 var playerSelected = false;
 var defenderSelected = false;
 var player;
@@ -44,9 +45,11 @@ var enemyHealth;
 var playerAttack;
 var enemyAttack;
 var playerBaseAttack;
+var enemiesDefeated = 0;
 
 //Object Logic
-//Each attack by selected character  increases by base attack power
+//Each attack by selected character  increases by base attack power. 
+//Decrease player/enemy health.
 function playerIncreaseAttackPower() {
     playerAttack = playerAttack + playerBaseAttack;
 }
@@ -59,6 +62,7 @@ function decreaseEnemyHealth() {
     enemyHealth -= playerAttack;
 }
 
+//Loads global variables of player with its attributes
 function definePlayerVariables(figure) {
     if ($(figure).attr('id') === 'batman-figure') {
         player = batman;
@@ -83,6 +87,7 @@ function definePlayerVariables(figure) {
     }
 }
 
+//Loads global variables of enemy with its attributes
 function defineEnemyVariables(figure) {
     if ($(figure).attr('id') === 'batman-figure') {
         enemy = batman;
@@ -103,6 +108,7 @@ function defineEnemyVariables(figure) {
     }
 }
 
+//Updates the Player fig caption dynamically
 function changePlayerFigureCaption() {
     if (player === batman) {
         $('#batman-caption').html('Batman ' + playerHealth + ' HP');
@@ -115,6 +121,7 @@ function changePlayerFigureCaption() {
     }
 }
 
+//Updates the enemy fig caption dynamically
 function changeEnemyFigureCaption() {
     if (enemy === batman) {
         $('#batman-caption').html('Batman ' + enemyHealth + ' HP');
@@ -127,7 +134,8 @@ function changeEnemyFigureCaption() {
     }
 }
 
-//When the page loads, render the DOM, set the character chosen variables and intialize chosen characterand enemies
+//When the page loads, render the DOM, sets the character chosen by user.
+//Selects enemies chosen and sets up attack button function.
 $(document).ready(function() {
     $('#players').on('click', '.figure', function() {
         // Handle choosing their character
@@ -140,7 +148,7 @@ $(document).ready(function() {
         playerSelected = true;
         definePlayerVariables(this);
     });
-
+    //Potential enemies
     $('#potential-enemies').on('click', '.figure', function() {
         // Handle choosing the currentEnemy
         if (defenderSelected) {
@@ -153,12 +161,65 @@ $(document).ready(function() {
 
 
     });
-
+    //Attack button
     $('#attack-button').on('click', function() {
         decreaseEnemyHealth();
         decreasePlayerHealth();
         playerIncreaseAttackPower();
         changePlayerFigureCaption();
         changeEnemyFigureCaption();
+        gameOver();
+        playerWins();
+        newGame();
     });
 });
+
+//Game Over
+function gameOver() {
+    if (playerHealth <= 0) {
+        $('#message').html('Game over, You lost all your HP.');
+        restart();
+        clickRestart();
+    }
+}
+
+//Restart
+function restart() {
+    var resetButton = '<button type="button" class="btn btn-danger" id="reset-button">Reset button</button>';
+    $('#reset').html(resetButton);
+}
+
+function clickRestart() {
+    $('#reset-button').on('click', function() {
+        $('#select-character').html('Choose a player');
+        $('.figure').insertAfter('#select-character');
+        $('.figure').css('border', '2px solid yellow');
+        $('#message').html('');
+        $('#reset').html('');
+        playerHealth = 0;
+        enemyHealth = 0;
+        playerAttack = 0;
+        enemyAttack = 0;
+        playerBaseAttack = 0;
+        defenderSelected = false;
+        enemiesDefeated = 0;
+    });
+}
+//Player Wins
+function playerWins() {
+    if (enemyHealth <= 0) {
+        $('#message').html('You defeated this enemy. Please select another enemy.');
+        defenderSelected = false;
+        enemiesDefeated++;
+    }
+}
+
+
+//Game Reset
+function newGame() {
+    if (enemiesDefeated === 3) {
+        $('#message').html('Congrats hero! You defeated all the enemies. Click restart to play again.');
+        restart();
+        clickRestart;
+    }
+}
