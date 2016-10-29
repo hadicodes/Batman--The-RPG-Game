@@ -1,5 +1,6 @@
-body {
-    background: url("../images/batface.jpg");
+.container {
+    background: url("../images/batface.jpg") no-repeat;
+    background-size: contain;
 }
 
 h1 {

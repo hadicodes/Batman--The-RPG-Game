@@ -21,38 +21,38 @@
         </div>
         <!--Choose your character  -->
         <div class="row" id="players">
-            <h3 id="choose-player">Choose your player</h3>
-            <figure class="figure">
+            <h3 id="select-character">Choose your player</h3>
+            <figure class="figure" id="batman-figure">
                 <img src="assets/images/thebat.jpg" class="figure-img img-fluid rounded character" alt="A pic of Batman the character" id="batman">
-                <figcaption class="figure-caption">Batman 100 HP</figcaption>
+                <figcaption class="figure-caption" id="batman-caption">Batman 100 HP</figcaption>
             </figure>
-            <figure class="figure">
+            <figure class="figure" id="joker-figure">
                 <img src="assets/images/joker.jpg" class="figure-img img-fluid rounded character" alt="A pic of joker the character" id="joker">
-                <figcaption class="figure-caption">Joker 150 HP</figcaption>
+                <figcaption class="figure-caption" id="joker-caption">Joker 150 HP</figcaption>
+            </figure>""
+            <figure class="figure" id="bane-figure">
+                <img src="assets/images/bane.jpg" class="figure-img img-fluid rounded character" alt="A pic of Bane the character" id="bane">
+                <figcaption class="figure-caption" id="bane-caption">Bane 120 HP</figcaption>
             </figure>
-            <figure class="figure">
-                <img src="assets/images/bane.jpg" class="figure-img img-fluid rounded character" alt="A pic of bane the character" id="bane">
-                <figcaption class="figure-caption">Bane 120 HP</figcaption>
-            </figure>
-            <figure class="figure">
-                <img src="assets/images/evilsuperman.jpg" class="figure-img img-fluid rounded character" alt="A pic of evilsuperman" id="evilsuperman">
-                <figcaption class="figure-caption">Evil Superman 180 HP</figcaption>
+            <figure class="figure" id="superman-figure">
+                <img src="assets/images/evilsuperman.jpg" class="figure-img img-fluid rounded character" alt="A pic of Evilsuperman" id="evilsuperman">
+                <figcaption class="figure-caption" id="superman-caption">Evil Superman 180 HP</figcaption>
             </figure>
         </div>
         <!-- Enemies available to attack -->
-        <div class="attack-section row">
+        <div id="potential-enemies" class="row">
             <h3 id="attack-header">Choose one of Batman's enemies to attack!</h3>
         </div>
         <hr>
         <!-- Fight Section -->
-        <div class="fight-section row">
+        <div id="fight-section" class=" row">
             <h3>Fight Section</h3>
         </div>
         <!-- Attack button -->
-        <a href="#" class="btn btn-danger">Attack!</a>
+        <button type="button" class="btn btn-danger attack" id="attack-button">Attack!</button>
         <!-- Defender Section -->
-        <div class="defender-section row">
-            <h3>Defender</h3>
+        <div id="defender-div" class="row">
+            <h3 id="defender">Defender</h3>
         </div>
     </div>
     <!-- Javascript Link to game.js -->
