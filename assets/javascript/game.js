@@ -185,7 +185,8 @@ function gameOver() {
 
 //Restart
 function restart() {
-    var resetButton = '<button type="button" class="btn btn-danger" id="reset-button">Reset button</button>';
+    var resetButton = '<button type="button" class="btn btn-danger" id="reset-button">Restart Game</button>';
+
     $('#reset').html(resetButton);
 }
 
@@ -220,6 +221,18 @@ function newGame() {
     if (enemiesDefeated === 3) {
         $('#message').html('Congrats hero! You defeated all the enemies. Click restart to play again.');
         restart();
-        clickRestart;
+        clickRestart();
     }
+}
+
+
+
+renderCharacter('superman-figure');
+
+function renderCharacter(id, imgsrc) {
+
+    var figureRender = $('<figure>').addClass('figure');
+    figureRender.attr('id', id);
+    var img = $('<img>');
+    img.attr('src', imgsrc);
 }
